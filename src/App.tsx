@@ -214,13 +214,8 @@ export default function App() {
               className="space-y-12 max-w-4xl mx-auto"
             >
               {SITES.map((site, index) => (
-                <div key={site.id} className="relative bg-white rounded-2xl border border-slate-200 card-shadow-hover">
-                  {/* Oversized Rank Number - Refined for better visual balance */}
-                  <span className="absolute -left-12 top-1/2 -translate-y-1/2 font-display text-[160px] leading-none text-slate-100 select-none pointer-events-none z-0">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-
-                  <div className="relative z-10 p-6 md:p-8">
+                <div key={site.id} className="bg-white rounded-2xl border border-slate-200 overflow-hidden card-shadow-hover">
+                  <div className="p-6 md:p-8">
                     <div className="flex flex-col md:flex-row gap-8">
                       <div className="w-full md:w-48 flex-shrink-0">
                         <div className="bg-slate-50 rounded-xl p-4 flex items-center justify-center aspect-[2/1] border border-slate-100">
@@ -345,8 +340,12 @@ export default function App() {
                       <p className="text-xs text-slate-400">{site.benefits} • {site.promo}</p>
                     </div>
                     <div className="flex items-center gap-4">
-                      <a href={site.url} className="p-2 text-slate-400 hover:text-indigo-600 transition-colors" onClick={(e) => e.stopPropagation()}>
-                        <ExternalLink className="w-4 h-4" />
+                      <a 
+                        href={site.url} 
+                        className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-1.5" 
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        바로가기 <ExternalLink className="w-3 h-3" />
                       </a>
                       <ChevronDown className={`w-4 h-4 text-slate-300 transition-transform ${expandedId === site.id ? "rotate-180" : ""}`} />
                     </div>
